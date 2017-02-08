@@ -13,6 +13,7 @@ const configs = {
         username: "admin",
         password: "TestPassword"
     },
+    adminMountPoint: 'admin',
     env: 'local',
     grasshopper: {
         assets: {
@@ -31,8 +32,10 @@ const configs = {
         db: {
             type: 'mongodb',
             defaultPageSize: 10000,
-            endpoint: 'mongodb://127.0.0.1:27017',
-            host:  'mongodb://127.0.0.1:27017',
+            endpoint: 'mongodb://127.0.0.1:27017/grasshopper-demo',
+
+            //see here for connection string information: https://www.npmjs.com/package/mongoose#connecting-to-mongodb
+            host:  'mongodb://127.0.0.1:27017/grasshopper-demo',
             database:  'grasshopper-demo',
             debug:  true
         },
