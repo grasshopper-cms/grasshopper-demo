@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
+bin/installDeps
 nodemon -V index.js
