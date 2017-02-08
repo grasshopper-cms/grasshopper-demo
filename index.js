@@ -1,11 +1,14 @@
-'use strict'
+'use strict';
 
 const express = require('express');
-const ghCms = require('grasshopper-cms');
+const grasshopper = require('grasshopper-cms');
 const path = require('path');
 const app = express();
 
 const configs = {
+    app : app,
+    express : express,
+    plugins : [],
     admin: {
         username: "admin",
         password: "TestPassword"
@@ -28,8 +31,8 @@ const configs = {
         db: {
             type: 'mongodb',
             defaultPageSize: 10000,
-            endpoint: 'mongodb://localhost:27017',
-            host:  'localhost:27017',
+            endpoint: 'mongodb://127.0.0.1:27017',
+            host:  'mongodb://127.0.0.1:27017',
             database:  'grasshopper-demo',
             debug:  true
         },
@@ -43,13 +46,27 @@ const configs = {
     logger: {
         adapters : [{
             type : 'console',
-            application : 'njasap',
+            application : 'ghdemo',
             machine : 'dev'
         }]
     },
-    port: variables.port,
-    verbose: variables.verbose,
-    projectIsInAppDir: variables.projectIsInAppDir
+    port: 3000,
+    verbose: true
 };
 
-ghCms.start(configs);
+console.log('starting grasshopper cms');
+
+grasshopper
+    .start(configs)
+    .then(result => {
+        grasshopper.authenticatedRequest = result.authenticatedRequest;
+        grasshopper.grasshopper = result.grasshopper;
+        app.use('/api', grasshopper.grasshopper.router);
+        console.log('listening on port 3000');
+        app.listen(3000);
+    })
+    .catch(err => {
+        console.log('error', err);
+    });
+
+
