@@ -14,6 +14,7 @@ const configs = {
         password: "TestPassword"
     },
     adminMountPoint: 'admin',
+    mode: 'develop',
     env: 'local',
     grasshopper: {
         assets: {
