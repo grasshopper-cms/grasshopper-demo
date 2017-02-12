@@ -1,7 +1,8 @@
 'use strict';
 
-const express = require('express');
+const authMiddleware = require('./node_modules/grasshopper-cms/plugins/admin/src/middlewares/auth.middleware');
 const grasshopper = require('grasshopper-cms');
+const express = require('express');
 const path = require('path');
 const app = express();
 
@@ -66,6 +67,7 @@ grasshopper
         grasshopper.authenticatedRequest = result.authenticatedRequest;
         grasshopper.grasshopper = result.grasshopper;
         app.use('/api', grasshopper.grasshopper.router);
+        app.use('*', authMiddleware);
         console.log('listening on port 3000');
         app.listen(3000);
     })

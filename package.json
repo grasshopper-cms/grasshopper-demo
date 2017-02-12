@@ -1,6 +1,6 @@
 {
   "name": "grasshopper-demo",
-  "version": "1.0.0-build.4",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/grasshopper-cms/grasshopper-demo#readme",
   "dependencies": {
     "express": "^4.14.1",
-    "grasshopper-cms": "0.0.0-beta.12",
+    "grasshopper-cms": "0.0.0-beta.13",
     "pug": "^2.0.0-beta11"
   }
 }
