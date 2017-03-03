@@ -12,7 +12,7 @@ bin/seedDb
 bin/start
 ```
 
-Go to `http://localhost:3000/admin`
+Go to http://localhost:3000/admin
 
 u: admin
 p: TestPassword
