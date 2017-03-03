@@ -11,3 +11,8 @@ bin/seedDb
 # bin/start will npm -g install nodemon for you if needed
 bin/start
 ```
+
+Go to `localhost:3000/admin`
+
+u: admin
+p: TestPassword
