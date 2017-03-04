@@ -7,8 +7,8 @@ const path = require('path');
 const app = express();
 
 const configs = {
-    app : app,
-    express : express,
+    app,
+    express,
     plugins : [],
     admin: {
         username: "admin",
