@@ -64,9 +64,10 @@ console.log('starting grasshopper cms');
 grasshopper
     .start(configs)
     .then(result => {
+
+        // Store authenticatedRequest and the grasshopper object on the npm's module for later use
         grasshopper.authenticatedRequest = result.authenticatedRequest;
         grasshopper.grasshopper = result.grasshopper;
-        app.use('/api', grasshopper.grasshopper.router);
         app.use('*', authMiddleware);
         console.log('listening on port 3000');
         app.listen(3000);
