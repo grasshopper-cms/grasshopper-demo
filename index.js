@@ -14,7 +14,9 @@ const configs = {
         username: "admin",
         password: "TestPassword"
     },
-    adminMountPoint: 'admin',
+    // Comment these lines in to see /admin2 using /api2
+    // adminMountPoint: '/admin2',
+    // apiMountPoint: '/api2',
     mode: 'develop',
     env: 'local',
     grasshopper: {
@@ -34,12 +36,10 @@ const configs = {
         db: {
             type: 'mongodb',
             defaultPageSize: 10000,
-            endpoint: 'mongodb://127.0.0.1:27017/grasshopper-demo',
-
             //see here for connection string information: https://www.npmjs.com/package/mongoose#connecting-to-mongodb
             host:  'mongodb://127.0.0.1:27017/grasshopper-demo',
             database:  'grasshopper-demo',
-            debug:  true
+            debug:  false
         },
         server: {
             proxy: true,
@@ -63,11 +63,7 @@ console.log('starting grasshopper cms');
 
 grasshopper
     .start(configs)
-    .then(result => {
-
-        // Store authenticatedRequest and the grasshopper object on the npm's module for later use
-        grasshopper.authenticatedRequest = result.authenticatedRequest;
-        grasshopper.grasshopper = result.grasshopper;
+    .then(() => {
         app.use('*', authMiddleware);
         console.log('listening on port 3000');
         app.listen(3000);
