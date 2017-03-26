@@ -46,7 +46,13 @@ const configs = {
             host:  'localhost',
             https: false,
             maxFilesSize: 16000000
-        }
+        },
+        plugins: [{
+            name: 'test',
+            label: 'Test Plugin',
+            icon: 'fa-user',
+            path: path.join(__dirname, './plugins/test')
+        }]
     },
     logger: {
         adapters : [{
@@ -71,5 +77,3 @@ grasshopper
     .catch(err => {
         console.log('error', err);
     });
-
-
