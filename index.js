@@ -14,11 +14,11 @@ const configs = {
         password: "TestPassword"
     },
     // Comment these lines in to see /admin2 using /api2
-    // adminMountPoint: '/admin2',
-    // apiMountPoint: '/api2',
     mode: 'develop',
     env: 'local',
     grasshopper: {
+        // adminMountPoint: '/admin2',
+        // apiMountPoint: '/api2',
         assets: {
             default : "local",
             tmpdir : "{absolute path to tmp directory}",
