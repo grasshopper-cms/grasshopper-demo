@@ -9,7 +9,6 @@ const app = express();
 const configs = {
     app,
     express,
-    plugins : [],
     admin: {
         username: "admin",
         password: "TestPassword"
@@ -47,12 +46,18 @@ const configs = {
             https: false,
             maxFilesSize: 16000000
         },
-        plugins: [{
-            name: 'test',
-            label: 'Test Plugin',
-            icon: 'fa-user',
-            path: path.join(__dirname, './plugins/test')
-        }]
+        plugins: [
+            {
+                name: 'test',
+                label: 'Test Plugin',
+                icon: 'fa-user',
+                path: path.join(__dirname, './plugins/test')
+            },
+            {
+                // this plugin gets no ui in the admin
+                name : 'headless',
+                path: path.join(__dirname, './plugins/headless')
+            }]
     },
     logger: {
         adapters : [{
