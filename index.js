@@ -76,7 +76,7 @@ console.log('starting grasshopper cms');
 grasshopper
     .start(configs)
     .then(() => {
-        app.use('*', authMiddleware);
+        process.nextTick(() => app.use('/', authMiddleware));
         console.log('listening on port 3000');
         app.listen(3000);
     })
