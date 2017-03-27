@@ -13,10 +13,11 @@ const configs = {
         username: "admin",
         password: "TestPassword"
     },
-    // Comment these lines in to see /admin2 using /api2
-    mode: 'develop',
+    // Comment this line in to work on gh admin with npm link
+    // mode: 'develop',
     env: 'local',
     grasshopper: {
+        // Comment these lines in to see /admin2 using /api2
         // adminMountPoint: '/admin2',
         // apiMountPoint: '/api2',
         assets: {
