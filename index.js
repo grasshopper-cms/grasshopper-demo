@@ -18,8 +18,8 @@ const configs = {
     env: 'local',
     grasshopper: {
         // Comment these lines in to see /admin2 using /api2
-        // adminMountPoint: '/admin2',
-        // apiMountPoint: '/api2',
+        adminMountPoint: '/admin2',
+        apiMountPoint: '/api2',
         assets: {
             default : "local",
             tmpdir : "{absolute path to tmp directory}",
@@ -78,7 +78,7 @@ grasshopper
     .then((ghCms) => {
         console.log('ghCms.authenticatedRequest', Object.keys(ghCms.authenticatedRequest));
         console.log('ghCms.grasshopper', Object.keys(ghCms.grasshopper));
-        process.nextTick(() => app.use('/', authMiddleware));
+        app.use('/', authMiddleware);
         console.log('listening on port 3000');
         app.listen(3000);
     })
