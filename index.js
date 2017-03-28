@@ -18,8 +18,8 @@ const configs = {
     env: 'local',
     grasshopper: {
         // Comment these lines in to see /admin2 using /api2
-        adminMountPoint: '/admin2',
-        apiMountPoint: '/api2',
+        // adminMountPoint: '/admin2',
+        // apiMountPoint: '/api2',
         assets: {
             default : "local",
             tmpdir : "{absolute path to tmp directory}",
