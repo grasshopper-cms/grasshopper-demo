@@ -22,7 +22,6 @@ const configs = {
         // apiMountPoint: '/api2',
         assets: {
             default : "local",
-            tmpdir : "{absolute path to tmp directory}",
             engines: {
                 local:{
                     path: path.join(__dirname, 'tmp'),
