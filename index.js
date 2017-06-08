@@ -6,6 +6,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+// serve local assets
+app.use(express.static('tmp'));
+
 const configs = {
     app,
     express,
