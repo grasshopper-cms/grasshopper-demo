@@ -1,6 +1,5 @@
 'use strict';
 
-const authMiddleware = require('./node_modules/grasshopper-cms/plugins/admin/src/middlewares/auth.middleware');
 const grasshopper = require('grasshopper-cms');
 const express = require('express');
 const path = require('path');
@@ -60,6 +59,14 @@ const configs = {
                 // this plugin gets no ui in the admin
                 name : 'headless',
                 path: path.join(__dirname, './plugins/headless')
+            },
+            {
+                // this plugin is server rendered
+                name: 'server-rendered',
+                path: path.join(__dirname, './plugins/server-rendered'),
+                label: 'Server Rendered',
+                icon: 'fa-terminal',
+                template: 'template.pug'
             }]
     },
     logger: {
@@ -75,13 +82,16 @@ const configs = {
 
 console.log('starting grasshopper cms');
 
-grasshopper
-    .start(configs)
-    .then((ghCms) => {
-        console.log('ghCms.authenticatedRequest', Object.keys(ghCms.authenticatedRequest));
-        console.log('ghCms.grasshopper', Object.keys(ghCms.grasshopper));
-        app.use('/', authMiddleware);
+grasshopper.start(configs)
+    .then(grasshopper => {
+        console.log('grasshopper.authenticatedRequest', Object.keys(grasshopper.authenticatedRequest));
+        console.log('grasshopper.grasshopper', Object.keys(grasshopper.grasshopper));
+        console.log('grasshopper.middlewares', Object.keys(grasshopper.middlewares));
+
+        app.use('/', grasshopper.middlewares.auth);
+
         console.log('listening on port 3000');
+
         app.listen(3000);
     })
     .catch(err => {
