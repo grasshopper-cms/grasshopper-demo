@@ -19,7 +19,7 @@
   "homepage": "https://github.com/grasshopper-cms/grasshopper-demo#readme",
   "dependencies": {
     "express": "^4.14.1",
-    "grasshopper-cms": "^0.24.0",
+    "grasshopper-cms": "^0.24.2",
     "pug": "^2.0.0-rc.2"
   }
 }
